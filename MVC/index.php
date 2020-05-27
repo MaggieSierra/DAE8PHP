@@ -2,11 +2,13 @@
 require_once 'controllers/usuario.php';
 $controlador = new UsuarioController();
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["consulta"])) {
-    $controlador->mostrarTodo();
-} elseif ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["crear"])) {
-    $controlador->crear();
-}
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if(isset($_POST["consulta"])){
+        $controlador->mostrarTodo();
+    }elseif (isset($_POST["crear"])) {
+        $controlador->crear();
+    } 
+} 
 ?>
 
 <!DOCTYPE html>
